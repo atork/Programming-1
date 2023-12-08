@@ -1,7 +1,11 @@
 
         
 #vars
-treeheight,treewidth,emptyspace,emptyspace2,star=None
+treeheight=None
+treewidth= None
+emptyspace= None
+emptyspace2= None
+star=None
                
         #take input
         
@@ -21,23 +25,25 @@ if (treeheight>0):
         if (treeheight == userinput):
             star= 1
         else:
-            star = (input-treeheight)*2+1
+            star = (userinput-treeheight)*2+1
                 
                 
                 
             #calc spacing
-            emptyspace = (treewidth-star)/2
+            emptyspace = ((treewidth-star)/2)
             emptyspace2= emptyspace
                 
                 #print empty half
-            for (emptyspace; emptyspace > 0; emptyspace--):
-                    print(" "end='')
+            while  emptyspace > 0:
+                    print(' ',end='')
+                    emptyspace -= emptyspace
+            while star > 0 :
+                    print("*",end='')
+                    star -= star
                 
-            for (; star > 0; star--):
-                    System.out.print("*");
-                
-            for (; emptyspace2 > 0; emptyspace2--):
-                    print(" "end='');
+            while emptyspace2 > 0 :
+                    print(" ",end='')
+                    emptyspace2 -= emptyspace2
                 
 
 
