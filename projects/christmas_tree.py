@@ -9,7 +9,7 @@ star=None
                
         #take input
         
-userinput = int(input("Gimme treeheight"))
+userinput = int(input("Gimme :"))
         
 #Calculate max width
 treeheight = userinput
@@ -50,4 +50,4 @@ if (treeheight>0):
         #nextrow
         print('')
 
-        treeheight=treeheight - 1
+        treeheight-=treeheight
