@@ -1,18 +1,7 @@
-import random
-import time
-import turtle
+x = 4
+y =6
+print(type(x),type(y))
 
-from torch import rand
-tutel = turtle.Turtle()
-#tutel.speed(100)
-#for i in range(40):
-    #tutel.circle(100)
-    #tutel.left(10)
-#for i in range(25):
-    #tutel.left(13.7)
-    #tutel.circle(140)
-#time.sleep(10)
-tutel.turtlesize(100)
-for i in range(99):
-    tutel.forward(100)
-    tutel.left(random.randint(150,360))
+x = {1,'a',5}
+y = {1,'b',7}
+print(x-y)
