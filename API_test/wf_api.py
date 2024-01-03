@@ -1,12 +1,14 @@
+
 import requests
 import json
-response = requests.get("https://api.warframe.market/v1/items/mirage_prime_systems")
-print(response.json)
-
-
-def jsonprint(obj):
-    
+def jprint(obj):
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
-jsonprint(response.json())
+
+
+resp = requests.get('https://api.warframe.market/v1/items/primed_convulsion')
+resp_dict = resp.json()
+
+print(resp_dict.get('page'))
+
