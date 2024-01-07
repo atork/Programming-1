@@ -18,7 +18,6 @@ def sellchecker(list,slist):
     for x in list:
         if x["order_type"] == "sell":
             slist.append(x)
-            print("hello")
            
 sellchecker(bs_orders,s_orders)
 s_orders_len = len(s_orders)-1      
