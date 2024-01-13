@@ -1,9 +1,9 @@
-from turtle import done
 import requests
 import json
-from sympy import false, true
+from sympy import true,false
 
-resp = requests.get('https://api.warframe.market/v1/items/ash_prime_blueprint/orders')
+input = input("Item name: ")
+resp = requests.get('https://api.warframe.market/v1/items/'+input+'/orders')
 resp_dict = resp.json()
 bs_orders = resp_dict["payload"]["orders"]
 s_orders = []
@@ -18,11 +18,17 @@ def sellchecker(list,slist):
     for x in list:
         if x["order_type"] == "sell":
             slist.append(x)
-           
+            
+#price sorter
+def price_sort_asc(list):
+    for x in list:
+        x+1
+
+
 sellchecker(bs_orders,s_orders)
 s_orders_len = len(s_orders)-1      
 
-#outputs newest available offer for ash blueprint
+#outputs newest available offer
 while test == false:
     if s_orders[s_orders_len]["user"]["status"] == "ingame":
         print("Status:    ",s_orders[s_orders_len]["user"]["status"])
@@ -31,4 +37,3 @@ while test == false:
         test = true
     else:
         s_orders_len-=1
-
