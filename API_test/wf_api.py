@@ -21,25 +21,26 @@ def sellchecker(list,slist):
             slist.append(x)
 #price sorter after ky with lambda(no idea how lambda works)
 def price_sort_asc(list):
-    price_l=sorted(list, key=lambda d:d ["platinum"],reverse=True)
+    price_l=sorted(list, key=lambda d:d ["platinum"])
     return price_l
-    
+#ingame sorter
+def online(list):
+    lenghtl=len(list)
+    for x in list:
+        if x["user"]["status"]=="ingame":
+            return x
 
+
+#//programstart  
 #list of of all buy and sell sorted into a sellorder var
 sellchecker(bs_orders,s_orders)
 
 #sell orders sorted by price asc and lenght for ingame checker
 s_p_orders=price_sort_asc(s_orders)
-s_p_orders_len = len(s_p_orders)-1
 
-#//to be rewritten as function
-#outputs cheapest/newest/online sellorder
-while test == false:
-    if s_p_orders[s_p_orders_len]["user"]["status"] == "ingame":
-        print("Status:    ",s_p_orders[s_p_orders_len]["user"]["status"])
-        print("Price:     ",s_p_orders[s_p_orders_len]["platinum"])
-        print("Index num: ",s_p_orders_len)
-        print("Name:     ",s_p_orders[s_p_orders_len]["user"]["ingame_name"])
-        test = true
-    else:
-        s_p_orders_len-=1
+#puts online orders in x
+final_order=online(s_p_orders)
+
+jprint(final_order)
+
+
