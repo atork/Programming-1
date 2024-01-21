@@ -3,7 +3,7 @@ import time
 
 #Function to generate a random number between 1 and 60 for the countdown
 def get_countdown():
-    return random.randint(1, 60)
+    return random.randint(60,120)
 
 #Function to print the current state of the timer
 def print_timer(tim):
