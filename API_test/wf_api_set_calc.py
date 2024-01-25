@@ -22,8 +22,10 @@ neuro_resp_dict = resp.json()
 neuro_sb=wf_api.depacker(neuro_resp_dict)
 resp = requests.get('https://api.warframe.market/v1/items/'+wf_chassie+'/orders')
 chassie_resp_dict = resp.json()
+#depacker for chassie not working key error???
 chassie_sb=wf_api.depacker(chassie_resp_dict)
 
-blue_s=None
+
+blue_s=[]
 wf_api.sellchecker(blue_sb,blue_s)
 wf_api.jprint(blue_s)
