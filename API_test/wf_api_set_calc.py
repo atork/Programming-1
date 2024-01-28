@@ -11,6 +11,8 @@ wf_sys=fullnam+"_systems"
 wf_neuro=fullnam+"_neuroptics"
 wf_chassis=fullnam+"_chassis"
 
+#Singleparts 
+#request and unpacking
 resp = requests.get('https://api.warframe.market/v1/items/'+wf_blueprint+'/orders')
 blue_resp_dict = resp.json()
 blue_sb=wf_api.depacker(blue_resp_dict)
@@ -23,3 +25,25 @@ neuro_sb=wf_api.depacker(neuro_resp_dict)
 resp = requests.get('https://api.warframe.market/v1/items/'+wf_chassis+'/orders')
 chassis_resp_dict = resp.json()
 chassie_sb=wf_api.depacker(chassis_resp_dict)
+#sorting for sell orders
+blue_s=[]
+wf_api.sellchecker(blue_sb,blue_s)
+sys_s=[]
+wf_api.sellchecker(sys_sb,sys_s)
+neuro_s=[]
+wf_api.sellchecker(neuro_sb,neuro_s)
+chassis_s=[]
+wf_api.sellchecker(chassie_sb,chassis_s)
+#price sorting
+blue_s_asc=wf_api.price_sort_asc(blue_s)
+sys_s_asc=wf_api.price_sort_asc(sys_s)
+neuro_s_asc=wf_api.price_sort_asc(neuro_s)
+chassis_s_asc=wf_api.price_sort_asc(chassis_s)
+#ingame sort fin
+blue=wf_api.ingame(blue_s_asc)
+sys=wf_api.ingame(sys_s_asc)
+neuro=wf_api.ingame(neuro_s_asc)
+chassis=wf_api.ingame(chassis_s_asc)
+#single calc
+print("Singleprice: ",end="")
+print(wf_api.price(blue)+wf_api.price(sys)+wf_api.price(neuro)+wf_api.price(chassis))
