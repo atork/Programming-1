@@ -47,3 +47,14 @@ chassis=wf_api.ingame(chassis_s_asc)
 #single calc
 print("Singleprice: ",end="")
 print(wf_api.price(blue)+wf_api.price(sys)+wf_api.price(neuro)+wf_api.price(chassis))
+
+#set request
+setnam=fullnam+"_set"
+resp = requests.get('https://api.warframe.market/v1/items/'+setnam+'/orders')
+resp_dict=resp.json
+resp_sb=wf_api.depacker(resp_dict)
+resp_s=[]
+wf_api.sellchecker(resp_sb,resp_s)
+res_s_asc=wf_api.price_sort_asc(resp_s)
+res_ord=wf_api.ingame(res_s_asc)
+print(wf_api.price(res_ord))
