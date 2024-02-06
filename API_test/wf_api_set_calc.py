@@ -2,6 +2,7 @@ import wf_api
 import requests
 import json
 from sympy import true,false
+import pandas
 
 input = input("Warframe name: ")
 fullnam= input+"_prime"
