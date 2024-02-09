@@ -1,4 +1,5 @@
 #tutorial https://www.w3schools.com/python/pandas/pandas_series.asp
+from operator import index
 import pandas as pd
 
 a=[1, 7,3]
@@ -20,3 +21,15 @@ print("")
 print(var1["x"])
 print("")
 
+#directly assigns new index matched with values
+calories ={"day1": 420,"day2": 380,"day3":390}
+
+var =pd.Series(calories)
+
+print(var)
+
+print("")
+#when wanting only certain values from list input index keys as list
+var =pd.Series(calories, index=["day1","day2"])
+
+print(var)
