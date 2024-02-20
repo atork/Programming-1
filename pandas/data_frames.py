@@ -15,3 +15,12 @@ print(var)
 print(var.loc[0])
 #multiple row can be an output when index is an array of index nums
 print(var.loc[[1,2]])
+
+#loads with custom index
+#Idex needs to match exactly number of rows
+var=pd.DataFrame(data,["day1","day2","day3"])
+print(var)
+#locate with new custom index
+#no longer able to find with normal index
+print(var.loc["day1"])
+
